@@ -97,6 +97,16 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,42px);let
 .card h3{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.02em;margin:8px 0 10px}
 .card p{margin:0;color:var(--muted);font-size:15px}
 
+/* Tools */
+.tools{margin-top:56px;display:grid;gap:0;border-top:1px solid var(--line)}
+.tools h3{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.02em;margin:28px 0 8px}
+.trow{display:grid;grid-template-columns:200px 1fr;gap:20px;padding-block:16px;border-bottom:1px solid var(--line);align-items:baseline}
+.trow > span{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.pills li{list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 11px;font-size:14px;font-weight:600}
+.pills{margin:0;padding:0}
+@media (max-width:640px){.trow{grid-template-columns:1fr;gap:10px}}
+
 /* Games */
 .games{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
 .game{display:flex;flex-direction:column;gap:12px;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;transition:border-color .15s ease,transform .15s ease}
@@ -211,6 +221,15 @@ footer a{text-decoration:none}
         <article class="card"><span class="k">AdMob · Mediation</span><h3>Ads &amp; monetization</h3><p>Google AdMob integration with mediation: banner, interstitial and rewarded ads, placed without hurting gameplay.</p></article>
         <article class="card"><span class="k">Debugging</span><h3>Bug solving</h3><p>Finding and fixing gameplay, save/load and device-specific bugs between releases.</p></article>
         <article class="card"><span class="k">Google Play</span><h3>Live game updates</h3><p>Regular updates, new content and releases for games with millions of downloads.</p></article>
+      </div>
+      <div class="tools">
+        <h3>Tools &amp; tech</h3>
+        <div class="trow"><span>Core</span><ul class="pills"><li>Unity 2D</li><li>Unity 3D</li><li>C#</li><li>Android builds</li><li>Google Play Console</li></ul></div>
+        <div class="trow"><span>Ads &amp; monetization</span><ul class="pills"><li>Google AdMob</li><li>Ad mediation</li><li>AppLovin</li><li>Unity Ads</li><li>Meta Audience Network</li><li>ironSource</li><li>Pangle</li><li>In-app purchases</li></ul></div>
+        <div class="trow"><span>Firebase</span><ul class="pills"><li>Analytics</li><li>Crashlytics</li><li>Remote Config</li></ul></div>
+        <div class="trow"><span>Performance</span><ul class="pills"><li>Unity Profiler</li><li>Android Vitals</li><li>ANR &amp; crash fixing</li></ul></div>
+        <div class="trow"><span>Gameplay</span><ul class="pills"><li>Vehicle physics</li><li>RCC</li><li>Save / load systems</li><li>Level progression</li><li>Animator</li></ul></div>
+        <div class="trow"><span>Workflow</span><ul class="pills"><li>Git</li><li>GitHub</li></ul></div>
       </div>
     </div>
   </section>
