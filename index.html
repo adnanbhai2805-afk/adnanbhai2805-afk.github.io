@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Adnan Nadeem is a Unity game developer with 3+ years of experience building 2D and 3D Android games on Google Play.">
+<title>Adnan Nadeem Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: single column of bands; hero pairs a headline with a Unity-Inspector-style "developer component" panel */
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#141A22; --muted:#5A6573; --line:#D5DBE2;
+  --accent:#E8541C; --accent-ink:#FFFFFF; --accent-soft:#FBE3D8;
+  --panel:#2A2F37; --panel-2:#353B45; --panel-ink:#D8DDE4; --panel-muted:#8D96A3; --panel-line:#1E2228;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161C; --surface:#1A2029; --ink:#E9EDF2; --muted:#98A3B1; --line:#2A323D;
+  --accent:#FF7240; --accent-ink:#12161C; --accent-soft:#3A2118;
+  --panel:#222831; --panel-2:#2C333D; --panel-ink:#D8DDE4; --panel-muted:#8D96A3; --panel-line:#161A20;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161C; --surface:#1A2029; --ink:#E9EDF2; --muted:#98A3B1; --line:#2A323D;
+  --accent:#FF7240; --accent-ink:#12161C; --accent-soft:#3A2118;
+  --panel:#222831; --panel-2:#2C333D; --panel-ink:#D8DDE4; --panel-muted:#8D96A3; --panel-line:#161A20;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+header.nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:9;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav nav{display:flex;gap:22px;flex-wrap:wrap}
+.nav nav a{text-decoration:none;font-weight:600;font-size:14px;color:var(--muted)}
+.nav nav a:hover{color:var(--ink)}
+@media (max-width:640px){.nav nav{display:none}}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;padding-block:72px 64px}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:36px;padding-block:44px}}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+.status i{width:8px;height:8px;border-radius:50%;background:#2DB36A;box-shadow:0 0 0 3px color-mix(in srgb,#2DB36A 25%,transparent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,76px);line-height:1;letter-spacing:-.035em;margin:22px 0 14px;text-wrap:balance}
+h1 .role{display:block;font-size:.42em;font-weight:500;letter-spacing:-.01em;color:var(--accent);margin-top:14px}
+.lede{font-size:18px;color:var(--muted);max-width:58ch;margin:0 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px;border-radius:10px;border:1.5px solid var(--ink);transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* Inspector panel */
+.inspector{background:var(--panel);color:var(--panel-ink);border-radius:10px;font-family:var(--mono);font-size:13px;box-shadow:0 24px 50px -24px rgba(10,14,20,.55);overflow:hidden;min-width:0}
+.insp-tab{display:flex;justify-content:space-between;background:var(--panel-line);padding:8px 14px;font-size:12px;color:var(--panel-muted)}
+.insp-tab b{color:var(--panel-ink);font-weight:600}
+.comp{border-top:1px solid var(--panel-line)}
+.comp-head{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--panel-2);font-weight:600}
+.comp-head .chk{width:14px;height:14px;border-radius:3px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink);font-size:10px}
+.comp-head small{margin-left:auto;color:var(--panel-muted);font-weight:400}
+.row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:7px 14px;align-items:center}
+.row span:first-child{color:var(--panel-muted)}
+.field{background:var(--panel-line);border-radius:4px;padding:3px 8px;overflow-wrap:anywhere}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags em{font-style:normal;background:var(--panel-line);border-radius:4px;padding:2px 7px}
+.bar{height:6px;background:var(--panel-line);border-radius:3px;overflow:hidden}
+.bar b{display:block;height:100%;background:var(--accent)}
+@media (max-width:420px){.row{grid-template-columns:1fr;gap:4px}}
+
+/* Genre ticker */
+.ticker{border-block:1px solid var(--line);background:var(--surface);overflow:hidden}
+.ticker-track{display:flex;gap:40px;width:max-content;padding-block:16px;animation:slide 32s linear infinite;font-family:var(--display);font-weight:500;font-size:15px;color:var(--muted)}
+.ticker-track span::after{content:"◆";color:var(--accent);margin-left:40px;font-size:10px;vertical-align:middle}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Sections */
+section.band{padding-block:84px}
+@media (max-width:640px){section.band{padding-block:56px}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,42px);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px;text-wrap:balance}
+.sub{color:var(--muted);max-width:60ch;margin:0 0 40px}
+
+/* Expertise */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;min-width:0}
+.card .k{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card h3{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.02em;margin:8px 0 10px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+/* Games */
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.game{display:flex;flex-direction:column;gap:12px;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;transition:border-color .15s ease,transform .15s ease}
+.game:hover{border-color:var(--accent);transform:translateY(-3px)}
+.icon{width:64px;height:64px;border-radius:16px;background:var(--accent-soft);display:grid;place-items:center;font-family:var(--display);font-weight:800;color:var(--accent);font-size:22px}
+.game .cat{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.game h3{margin:0;font-size:17px;font-weight:700;line-height:1.3}
+.game p{margin:0;font-size:14px;color:var(--muted)}
+.game.todo{border-style:dashed}
+.game.todo .icon{background:transparent;border:1.5px dashed var(--line);color:var(--muted)}
+
+/* Experience */
+.timeline{display:grid;gap:18px}
+.job{display:grid;grid-template-columns:200px 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px}
+@media (max-width:700px){.job{grid-template-columns:1fr;gap:10px}}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.now{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--accent);color:var(--accent-ink);padding:3px 9px;border-radius:999px}
+.job h3{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.02em;margin:0}
+.job .co{font-weight:600;color:var(--muted);margin:2px 0 12px}
+.job ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:4px}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .wrap{padding-block:88px}
+.contact h2{color:var(--bg);font-size:clamp(32px,5vw,56px)}
+.contact .sub{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.link{text-decoration:none;transition:border-color .15s ease}
+.link:hover{border-color:var(--accent)}
+.link{border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);border-radius:12px;padding:18px 20px;min-width:0}
+.link small{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+.link span{font-weight:600;overflow-wrap:anywhere;user-select:all}
+footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 55%,transparent);font-size:13px;border-top:1px solid color-mix(in srgb,var(--bg) 15%,transparent)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
+footer a{text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">AN<span>.</span></a>
+    <nav aria-label="Main">
+      <a href="#expertise">Expertise</a>
+      <a href="#games">Games</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status"><i></i>Open to new projects</span>
+        <h1>Adnan Nadeem <span class="role">Unity Game Developer · 2D &amp; 3D</span></h1>
+        <p class="lede">3+ years building Android games in Unity: simulation, shooting, stunt, 2D puzzle, casual, roleplay and open-world titles. Many of my games are live on Google Play with millions of downloads. I handle the full cycle, from gameplay and optimization to bug fixing, Android vitals, and AdMob ads with mediation.</p>
+        <div class="cta">
+          <a class="btn primary" href="#games">See my games</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="inspector" aria-label="Developer profile summary">
+        <div class="insp-tab"><b>Inspector</b><span>AdnanNadeem.prefab</span></div>
+        <div class="comp">
+          <div class="comp-head"><span class="chk">✓</span>Developer (Script)<small>C#</small></div>
+          <div class="row"><span>Name</span><span class="field">Adnan Nadeem</span></div>
+          <div class="row"><span>Role</span><span class="field">Unity Game Developer</span></div>
+          <div class="row"><span>Experience</span><span class="field">3+ years</span></div>
+          <div class="row"><span>Dimensions</span><span class="tags"><em>2D</em><em>3D</em></span></div>
+          <div class="row"><span>Platform</span><span class="field">Android · Google Play</span></div>
+        </div>
+        <div class="comp">
+          <div class="comp-head"><span class="chk">✓</span>Live Ops<small>focus</small></div>
+          <div class="row"><span>Optimization</span><span class="bar"><b style="width:92%"></b></span></div>
+          <div class="row"><span>Android Vitals</span><span class="bar"><b style="width:88%"></b></span></div>
+          <div class="row"><span>Ads &amp; Mediation</span><span class="bar"><b style="width:90%"></b></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Simulation</span><span>Shooting</span><span>Stunt</span><span>2D Puzzle</span><span>Casual</span><span>Roleplay</span><span>Open World</span>
+      <span>Simulation</span><span>Shooting</span><span>Stunt</span><span>2D Puzzle</span><span>Casual</span><span>Roleplay</span><span>Open World</span>
+    </div>
+  </div>
+
+  <section class="band" id="expertise">
+    <div class="wrap">
+      <p class="eyebrow">What I do</p>
+      <h2>From first prototype to a stable live game</h2>
+      <p class="sub">The work that keeps a mobile game fast, stable and earning after it ships.</p>
+      <div class="grid">
+        <article class="card"><span class="k">Unity · C#</span><h3>Gameplay in 2D &amp; 3D</h3><p>Player, vehicle and level systems across simulation, shooting, stunt, puzzle, casual, roleplay and open-world games.</p></article>
+        <article class="card"><span class="k">Profiler · Draw calls</span><h3>Game optimization</h3><p>Higher FPS and lower memory on low-end Android devices, with lighter assets and smaller builds.</p></article>
+        <article class="card"><span class="k">ANR · Crash rate</span><h3>Android vitals</h3><p>Tracking down crashes and ANRs from Play Console so live games stay healthy and visible on the store.</p></article>
+        <article class="card"><span class="k">AdMob · Mediation</span><h3>Ads &amp; monetization</h3><p>Google AdMob integration with mediation: banner, interstitial and rewarded ads, placed without hurting gameplay.</p></article>
+        <article class="card"><span class="k">Debugging</span><h3>Bug solving</h3><p>Finding and fixing gameplay, save/load and device-specific bugs between releases.</p></article>
+        <article class="card"><span class="k">Google Play</span><h3>Live game updates</h3><p>Regular updates, new content and releases for games with millions of downloads.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="games" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h2>Games on Google Play</h2>
+      <p class="sub">A selection of titles I've worked on. Tap any card to open it in the Play Store.</p>
+      <div class="games">
+        <a class="game todo" href="#games"><div class="icon">+</div><span class="cat">Simulation</span><h3>Game title</h3><p>One-line description of the game.</p></a>
+        <a class="game todo" href="#games"><div class="icon">+</div><span class="cat">Shooting</span><h3>Game title</h3><p>One-line description of the game.</p></a>
+        <a class="game todo" href="#games"><div class="icon">+</div><span class="cat">Stunt</span><h3>Game title</h3><p>One-line description of the game.</p></a>
+        <a class="game todo" href="#games"><div class="icon">+</div><span class="cat">Open World</span><h3>Game title</h3><p>One-line description of the game.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="experience" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Career</p>
+      <h2>Experience</h2>
+      <p class="sub">3+ years shipping Unity games for Android.</p>
+      <div class="timeline">
+        <article class="job">
+          <div><div class="when">Jan 2025 — Present</div><span class="now">Current</span></div>
+          <div>
+            <h3>Unity Game Developer</h3>
+            <p class="co">Innovative Tech Inc. · Bahawalpur</p>
+            <ul>
+              <li>Develop and update 2D and 3D Android games in Unity.</li>
+              <li>Optimize performance and fix bugs between releases.</li>
+              <li>Integrate AdMob ads with mediation.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <div><div class="when">2023 — 2024</div></div>
+          <div>
+            <h3>Unity Game Developer</h3>
+            <p class="co">F3 Technologies · Islamabad</p>
+            <ul>
+              <li>Built gameplay features and levels for mobile titles.</li>
+              <li>Worked on games now live on Google Play.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's build your next game.</h2>
+    <p class="sub">Open to full-time roles, freelance work and collaborations.</p>
+    <div class="links">
+      <a class="link" href="https://wa.me/923048552826" target="_blank" rel="noopener"><small>WhatsApp / Phone</small><span>+92 304 8552826</span></a>
+      <a class="link" href="https://www.linkedin.com/in/adnan-nadeem-a12ab41b5" target="_blank" rel="noopener"><small>LinkedIn</small><span>in/adnan-nadeem</span></a>
+      <a class="link" href="https://github.com/adnanbhai2805-afk" target="_blank" rel="noopener"><small>GitHub</small><span>adnanbhai2805-afk</span></a>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Adnan Nadeem</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>
